@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- External CSS link -->
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <title>Fighting Game</title>
+</head>
+<body>
+    <div class="game-container" id="game-container">
+
+        <div class="menu" id="menu">
+            <p class="start-btn" id="start-btn">Click to Start!</p>
+            <p class="rules" id="rules">catch pokemons and get a score of 70. you only have 70 seconds. Collect pokeballs if you run out.</p>
+        </div>
+
+        <div class="top-bar">
+            <div class="timer" id="timer">Time: 0</div>
+            <div class="score" id="score">Score: 0</div>
+        </div>
+
+        <div class="end-screen" id="end-screen">
+            <div id="display-text"></div>
+            <div id="display-score"></div>
+            <div id="restart" class="restart">Click to restart</div>
+        </div>
+
+        <div class="pokeball" id="pokeball">Pokeballs: 15</div>
+        <div class="msg" id="msg">Collect Pokeballs!</div>
+        
+        <img class="pokeball-img" src="./images/pokeball-icon.png"/>       
+
+    </div>
+
+    <!-- External Js  -->
+    <script src="utils.js"></script>
+    <script src="classes.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&family=Noto+Sans:wght@300;400&family=Press+Start+2P&display=swap');
+
+*{
+    box-sizing: border-box;
+    overflow: hidden;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(33,33,33);
+}
+
+.game-container{
+    width: 1024;
+    height: 576;
+    position: relative;
+    cursor: url('./images/cursor.png');
+}
+
+.menu{
+    color: rgb(33,33,33);
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./images/background.jpg');
+    background-position: center;
+    background-size: cover;
+    font-family: 'Press Start 2P';
+    color: rgb(33,33,33);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    filter: contrast(0.9) brightness(0.9);
+}
+.start-btn{
+    font-size: 30px;
+    animation: blinker 1s linear infinite;
+    cursor: pointer;
+    text-align: center;
+}
+.rules{
+    width: 60%;
+    font-size: 22px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.top-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1024px;
+    margin-top: 10px;
+    padding: 0 20px 0 20px;
+}
+.timer{
+    font-family: 'Press Start 2P';
+    font-size: 24px;
+    padding: 20px;
+    color: rgb(33,33,33)
+}
+.score{
+    font-family: 'Press Start 2P';
+    font-size: 22px;
+    color: rgb(33, 33, 33)
+}
+
+.end-screen{
+    font-family: 'Press Start 2P';
+    color: rgb(33, 33, 33);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 100px;
+    align-items: center;
+    gap: 30px;
+    display: none;
+
+}
+#display-text{
+    font-size: 30px;
+    line-height: 50px;
+    text-align: center;
+}
+#display-score{
+    font-size: 25px;
+    line-height: 50px;
+    text-align: center;
+}
+.restart{
+    animation: blinker 1s linear infinite;
+    cursor: pointer;
+    font-size: 35px;
+    margin-top: 100px;
+}
+
+.pokeball{
+    position: absolute;
+    top: 540px;
+    left: 760px;
+    font-family: 'Press Start 2P';
+    font-size: 20px;
+    color: rgb(230,230,230);
+    transform: translate(-50%,-50%);
+}
+.msg{
+    font-family: 'Press Start 2P';
+    font-size: 22px;
+    color: red;
+    position: absolute;
+    top: 530px;
+    left: 100px;
+    filter: brightness(0.8);
+    animation: blinker 0.7s linear infinite;
+    display: none;
+}
+.pokeball-img{
+    position: absolute;
+    top: 540px;
+    left: 940px;
+    transform: translate(-50%,-50%);
+    filter: brightness(0.8)
+}
+
+@keyframes blinker{
+    0% { opacity: 1.0;}
+    50% {opacity: 0.5;}
+    100% {opacity: 1.0;}
+}
