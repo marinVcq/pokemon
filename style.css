@@ -72,6 +72,7 @@ body{
     font-size: 22px;
 }
 .sound-btn{
+    font-family: 'Press Start 2P';
     display: flex;
     justify-content: center;
     align-items: center;
