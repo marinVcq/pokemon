@@ -3,9 +3,16 @@ let score = 0;
 let pokemons = [];
 let framesElapsed = 0;
 let framesHold = 40;
-let pokeballLeft = 10;
+let pokeballLeft = 12;
 let isPlaying = false;
 let gameSpeed = 1.5;
+let activateSound = false;
+
+// Sound assets
+let music = new sound("./sounds/music.mp3");
+let lose = new sound("./sounds/lose.mp3");
+let win = new sound("./sounds/win.mp3");
+
 
 // Setup The canvas
 let canvas = makeCanvas();
@@ -178,6 +185,12 @@ function handleClick(position){
                 // If it remains pokeball
                 if(pokeballLeft >= 1 && pokemon.pokeball === false){
 
+                    // Play sound
+                    if(activateSound){
+                        let beep = new sound("./sounds/beep.mp3");
+                        beep.play();  
+                    }
+                    
                     // Decrease pokeball number
                     if(pokeballLeft > 0) pokeballLeft--;
 
@@ -188,12 +201,20 @@ function handleClick(position){
                     pokemons.splice(pokemonIndex,1);                    
                 }
                 else if(pokemon.pokeball === true){
+
+                    // Pokeball sound
+                    if(activateSound){
+                       let pokeball_beep = new sound("./sounds/beep2.mp3");
+                       pokeball_beep.play(); 
+                    }
+                    
+                    // Add pokeball
                     pokeballLeft++;
                     document.getElementById('pokeball').innerHTML = 'Pokeballs: ' + pokeballLeft;
                     pokemons.splice(pokemonIndex,1); 
                 }
         }
-    });        
+    });
 }
 
 /**
@@ -202,12 +223,9 @@ function handleClick(position){
 
 function end(){
 
-    // Reset game variables
-    score = 0;
-    pokeballLeft = 15;
-    timer = 0;
-    pokemons = [];
-    gameSpeed = 1.5;
+    // Clear html
+    document.getElementById('display-text').innerHTML = 'You lose, Try again!';
+    document.getElementById('display-score').innerHTML = 'Your score: ' + score;
 
     // Remove event listener
     canvas.removeEventListener('mousedown', (event) => {
@@ -217,23 +235,57 @@ function end(){
 
     // Determine win or lose
     if(score < 70){
+
+        // Lose sound
+        lose.play();
+
+        // Display end screen
         document.getElementById('end-screen').style.display = 'flex';
         document.getElementById('display-text').innerHTML = 'You lose, Try again!';
         document.getElementById('display-score').innerHTML = 'Your score: ' + score;
 
     }else if(score >= 70){
+
+        // win sound
+        win.play();
+
+        // Display end screen
+        document.getElementById('end-screen').style.display = 'flex';
         document.getElementById('display-text').innerHTML = 'You Win!';
+        document.getElementById('display-score').innerHTML = 'Your score: ' + score;
     }
+
+    // Reset game variables
+    score = 0;
+    pokeballLeft = 15;
+    timer = 0;
+    pokemons = [];
+    gameSpeed = 1.5;
 }
 
+// User interactions
 let menu = document.getElementById('menu');
 menu.onclick = () => {
     start();
 };
-
 let restart = document.getElementById('restart');
 restart.onclick = () => {
     start();
+};
+let switchSound = document.getElementById('btn');
+switchSound.onclick = () => {
+    activateSound = !activateSound;
+    if(activateSound){
+        music.play();
+        document.getElementById('circle').style.left = '50%';
+        document.getElementById('circle').style.backgroundColor = 'rgb(33,33,33)';
+
+    }else{
+        music.stop();
+        document.getElementById('circle').style.left = '0';
+        document.getElementById('circle').style.backgroundColor = 'rgb(60,60,60)';
+
+    }
 };
 
 /**

@@ -81,3 +81,22 @@ function increaseTimer(){
         clearTimeout(timerId);
     }
 }
+/**
+ * Load and play sound, function from w3schools.com 
+ * 
+ * @param {string} src The audio source file
+ */
+function sound(src ){
+    this.sound = document.createElement('audio');
+    this.sound.src = src;
+    this.sound.setAttribute('preload', "auto");
+    this.sound.setAttribute('controls', "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+    this.stop = function(){
+        this.sound.pause();
+    }
+}

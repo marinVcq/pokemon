@@ -6,7 +6,7 @@
  */
 
 class Sprite {
-    constructor({position, imageSrc, scale = 1,framesNumber = 1, width = 100, height = 96}){
+    constructor({position, imageSrc, scale = 1,framesNumber = 1, width = 150, height = 150}){
         // properties associated with the sprite
         this.position = position;
         this.width = width;

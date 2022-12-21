@@ -17,7 +17,6 @@ body{
     width: 1024;
     height: 576;
     position: relative;
-    cursor: url('./images/cursor.png');
 }
 
 .menu{
@@ -53,6 +52,8 @@ body{
 }
 
 .top-bar{
+    font-family: 'Press Start 2P';
+    color: rgb(33, 33, 33);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -64,15 +65,37 @@ body{
     padding: 0 20px 0 20px;
 }
 .timer{
-    font-family: 'Press Start 2P';
     font-size: 24px;
     padding: 20px;
-    color: rgb(33,33,33)
 }
 .score{
-    font-family: 'Press Start 2P';
     font-size: 22px;
-    color: rgb(33, 33, 33)
+}
+.sound-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px
+}
+.btn{
+    width: 45px;
+    height: 24px;
+    border-radius: 12px;
+    border: 1px solid rgb(33,33,33);
+    position: relative;
+    cursor: pointer;
+    background-color: rgba(255,255,255,0.15);
+
+}
+.circle{
+    width: 22px;
+    height: 22px;
+    border-radius: 11px;
+    background-color: rgb(60,60,60);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.4s ease;
 }
 
 .end-screen{
